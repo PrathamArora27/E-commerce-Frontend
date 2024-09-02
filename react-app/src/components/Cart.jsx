@@ -4,7 +4,7 @@ import CartItem from './CartItem'
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart)
-    const [TotalAmount, setTotalAmount] = useState(0);
+    const [totalAmount, setTotalAmount] = useState(0);
 
     useEffect(() => {
         setTotalAmount(cart.reduce((acc, current) => acc + current.price, 0));
@@ -27,7 +27,7 @@ const Cart = () => {
                                 <p className="text-xl font-bold">Your Cart Summary</p>
                                 <p>Total items: {cart.length}</p>
                                 <div className="mt-4">
-                                    <p className="text-lg font-semibold">Total amount: $ {TotalAmount}</p>
+                                    <p className="text-lg font-semibold">Total amount: $ {totalAmount.toFixed(2)}</p>
                                     <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md">Checkout</button>
                                 </div>
                             </div>
@@ -40,4 +40,3 @@ const Cart = () => {
 }
 
 export default Cart
- 
